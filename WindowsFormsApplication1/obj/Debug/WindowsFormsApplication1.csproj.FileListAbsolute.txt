@@ -11,3 +11,15 @@ E:\FormApp\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFo
 E:\FormApp\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 E:\FormApp\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 E:\FormApp\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Comm.resources
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\bin\Debug\WSMBS.dll
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\bin\Debug\WSMBS.xml
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Comm.resources
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\FormApp\ModbusToNet\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

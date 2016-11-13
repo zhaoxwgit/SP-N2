@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WSMBS;
 using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -17,6 +20,15 @@ namespace WindowsFormsApplication1
         WSMBS.WSMBSControl WsmbsRun = new WSMBS.WSMBSControl();
         IPEndPoint ServerIp = new IPEndPoint(IPAddress.Parse("0.0.0.0"),0);
         IPEndPoint LocalIp = new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0);
+
+        TcpClient client = null;
+        TcpListener listener = null;
+
+        NetworkStream streamToServer = null;
+        public static int ServerPort = 2000;//服务器端端口
+        public static Socket serverSocket;//服务器端
+        public static int ClientCount_Max = 20;//客户端的最大数量
+
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +41,21 @@ namespace WindowsFormsApplication1
             Result = WsmbsRun.Open();
             if (Result != WSMBS.Result.SUCCESS)
                 MessageBox.Show(WsmbsRun.GetLastErrorString());
+
+            try
+            {
+                TcpListener listener = new TcpListener(LocalIp.Address, LocalIp.Port);
+                listener.Start();
+               
+                Thread acceptThread = new Thread(acceptClientConnect);
+                acceptThread.Start();
+                //listBox1.Items.Add(client.Client.LocalEndPoint + " ---> " + client.Client.RemoteEndPoint);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void 通讯参数ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,12 +76,39 @@ namespace WindowsFormsApplication1
         {
             
         }
-
+        string msg = @"Welcome To TraceFact.Net";
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             listBox1.Items.Add(ServerIp.Address.ToString() + ":" + ServerIp.Port.ToString());
             listBox1.Items.Add(LocalIp.Address.ToString() + ":" + LocalIp.Port.ToString());
+
+            streamToServer = client.GetStream();
+            byte[] buffer = Encoding.Unicode.GetBytes(msg);     // 获得缓存
+            streamToServer.Write(buffer, 0, buffer.Length);     // 发往服务器
+        }
+
+        // 接受请求  
+        private void acceptClientConnect()
+        {
+            Thread.Sleep(1000);
+            try
+            {
+                TcpClient  rclient = listener.AcceptTcpClient();
+                if (listener != null)
+                {
+                    NetworkStream  rstreamToServer = rclient.GetStream();
+                    byte[] buffer = new byte[100];
+                    int bytesRead = rstreamToServer.Read(buffer, 0, 100);
+
+                    string msg = Encoding.Unicode.GetString(buffer, 0, buffer.Length);
+                    listBox1.Items.Add(msg);
+                }
+            }
+            catch
+            {
+                Thread.Sleep(1000);
+            }
         }
     }
 }

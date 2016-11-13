@@ -96,7 +96,7 @@
             // 断开ToolStripMenuItem
             // 
             this.断开ToolStripMenuItem.Name = "断开ToolStripMenuItem";
-            this.断开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.断开ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.断开ToolStripMenuItem.Text = "断开";
             this.断开ToolStripMenuItem.Click += new System.EventHandler(this.断开ToolStripMenuItem_Click);
             // 
@@ -129,7 +129,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "发送到服务器";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
